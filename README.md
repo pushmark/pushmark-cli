@@ -4,6 +4,17 @@ A simple CLI tool for sending push notifications.
 
 ## Installation
 
+### Homebrew (macOS/Linux)
+
+```bash
+brew tap pushmark/pushmark-cli
+brew install pushmark
+```
+
+### Pre-built binaries
+
+Download the latest release from [GitHub Releases](https://github.com/pushmark/pushmark-cli/releases) for your platform.
+
 ### Build from source
 
 ```bash
@@ -12,13 +23,13 @@ cd cli-go-pusht
 go build -o pushmark
 ```
 
-### Usage
+## Usage
 
 ```bash
 pushmark [global options] <channelHash> <message>
 ```
 
-### Examples
+## Examples
 
 ```bash
 # Send a simple notification (info - default)
@@ -62,7 +73,7 @@ The tool sends a POST request to `https://api.pushmark.app/<channelHash>` with t
 }
 ```
 
-### Global Options
+## Global Options
 
 - `--type`, `-t`: Notification type (`info`, `log`, `warning`, `success`, `error`) - defaults to `info`
 - `--help`, `-h`: Show help information
@@ -70,7 +81,7 @@ The tool sends a POST request to `https://api.pushmark.app/<channelHash>` with t
 
 ## Requirements
 
-- Go 1.21 or later
+- Go 1.21 or later (for building from source)
 
 ## Dependencies
 
