@@ -30,7 +30,7 @@ func main() {
 	app := &cli.App{
 		Name:    "pushmark",
 		Usage:   "Simple push notification CLI tool",
-		Version: "1.0.0",
+		Version: "1.0.6",
 		Authors: []*cli.Author{
 			{
 				Name: "pushmark",
