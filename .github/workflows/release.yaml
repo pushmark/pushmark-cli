@@ -11,28 +11,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Go
         uses: actions/setup-go@v4
         with:
           go-version: 1.22
 
-      - name: Cache Go Modules
-        uses: actions/cache@v3
-        with:
-          path: ~/go/pkg/mod
-          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
-          restore-keys: |
-            ${{ runner.os }}-go-
-
-      - name: Install GoReleaser
-        uses: goreleaser/goreleaser-action@v5
-        with:
-          version: latest
-
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v5
         with:
+          distribution: goreleaser
+          version: latest
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
