@@ -1,0 +1,44 @@
+project_name: pushmark
+
+builds:
+  - id: pushmark
+    main: ./main.go
+    binary: pushmark
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - pushmark
+
+brews:
+  - name: pushmark
+    repository:
+      owner: pushmark
+      name: pushmark-cli
+    directory: Formula
+    homepage: "https://github.com/pushmark/pushmark-cli"
+    description: "Send push notifications to any device via simple CLI"
+    license: "MIT"
+
+release:
+  github:
+    owner: pushmark
+    name: pushmark-cli
+  draft: false
+  prerelease: "false"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
