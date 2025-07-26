@@ -21,7 +21,8 @@ brews:
   - name: pushmark
     repository:
       owner: pushmark
-      name: pushmark-cli
+      name: homebrew-pushmark-cli
+      token: "{{ .Env.HOMEBREW_TAP_TOKEN }}"
     directory: Formula
     homepage: "https://github.com/pushmark/pushmark-cli"
     description: "Send push notifications to any device via simple CLI"
